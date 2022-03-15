@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'root'>
+        <form id="formDados">
+            <label for="idQtd">Qtd</label> <!-- label para destacar no clique-->
+            <input type ="text" name="qtd" id="idQtd">
+            <label for="idPreco">Preço</label>
+            <input type="text" name="preco" id="idPreco">
+            <input type="button" id="idButton" value="Calcular" onclick="calcularValor()">
+        </form>
+    </div>
+</body>
+
+<script> 
+    function calcularValor() {
+        let qtd = Number (document.getElementById("idQtd").value);
+        let preco = Number (document.getElementById("idPreco").value);
+        let total = (qtd * preco);
+        let eleRes = document.createElement("p"); //cria elemento ao clicar 
+        //eleRes.innerHTML = total; //ou textContent
+        eleRes.innerHTML = `Total de Compra = ${total}`
+        document.body.appendChild(eleRes);
+
+        const labX = document.querySelectorAll("label");
+        for (var i in labX) //(var i=0; i<labX.lenght; i++)
+        {
+            labX[i].style.color = "red"
+        }
+    }
+
+</script>
+
+</html>
